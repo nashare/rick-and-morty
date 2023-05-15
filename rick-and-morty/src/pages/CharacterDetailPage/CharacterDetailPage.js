@@ -57,11 +57,14 @@ function CharacterDetailPage() {
           </tr>
           <tr>
             <td>Origin:</td>
-            <td>
-              <Link to={`/locations/${character.origin.url.split("/").pop()}`} key={character.origin.name} className="link">
+
+            {character.origin.name !== 'unknown' ? (
+              <Link to={`/locations/${character.origin.url.split('/').pop()}`} key={character.origin.name} className="link">
                 {character.origin.name}
               </Link>
-            </td>
+            ) : (
+              character.origin.name
+            )}
           </tr>
           <tr>
             <td>Location:</td>
