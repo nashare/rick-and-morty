@@ -1,9 +1,9 @@
 import './EpisodeCard.css';
 
-function EpisodeCard() {
+function EpisodeCard({episode}) {
   return (
     <div>
-      EpisodeCard
+      {episode.name}
     </div>
   );
 }

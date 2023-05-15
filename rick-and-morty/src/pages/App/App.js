@@ -7,6 +7,7 @@ import LocationsPage from '../LocationsPage/LocationsPage';
 import EpisodesPage from '../EpisodesPage/EpisodesPage';
 import CharacterDetailPage from '../CharacterDetailPage/CharacterDetailPage';
 import LocationDetailPage from '../LocationDetailPage/LocationDetailPage';
+import EpisodeDetailPage from '../EpisodeDetailPage/EpisodeDetailPage';
 
 function App() {
   return (
@@ -18,6 +19,7 @@ function App() {
         <Route path="/locations" element={<LocationsPage />} />
         <Route path="/locations/:id" element={<LocationDetailPage />} />
         <Route path="/episodes" element={<EpisodesPage />} />
+        <Route path="/episodes/:id" element={<EpisodeDetailPage />} />
       </Routes>
     </main>
   );
