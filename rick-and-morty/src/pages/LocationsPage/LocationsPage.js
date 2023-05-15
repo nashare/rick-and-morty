@@ -1,5 +1,7 @@
 import React, { useState, useEffect } from 'react';
+import { Link } from 'react-router-dom';
 import './LocationsPage.css';
+import LocationCard from '../../components/LocationCard/LocationCard';
 
 const LocationsPage = () => {
   const [locations, setLocations] = useState([]);
@@ -19,13 +21,15 @@ const LocationsPage = () => {
   }, []);
 
   return (
-    <div>
-      {locations.map((location) => (
-        <div key={location.id}>
-          <h2>{location.name}</h2>
-        </div>
-      ))}
-    </div>
+    <section className="locations-container">
+      {locations.map((location) => {
+        return (
+          <Link to={`/locations/${location.id}`} key={location.id} className="link">
+            <LocationCard location={location} />
+          </Link>
+        );
+      })}
+    </section>
   );
 };
 

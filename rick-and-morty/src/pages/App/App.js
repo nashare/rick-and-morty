@@ -6,6 +6,7 @@ import CharactersPage from '../CharactersPage/CharactersPage';
 import LocationsPage from '../LocationsPage/LocationsPage';
 import EpisodesPage from '../EpisodesPage/EpisodesPage';
 import CharacterDetailPage from '../CharacterDetailPage/CharacterDetailPage';
+import LocationDetailPage from '../LocationDetailPage/LocationDetailPage';
 
 function App() {
   return (
@@ -15,6 +16,7 @@ function App() {
         <Route path="/" element={<CharactersPage />} />
         <Route path="/characters/:id" element={<CharacterDetailPage />} />
         <Route path="/locations" element={<LocationsPage />} />
+        <Route path="/locations/:id" element={<LocationDetailPage />} />
         <Route path="/episodes" element={<EpisodesPage />} />
       </Routes>
     </main>

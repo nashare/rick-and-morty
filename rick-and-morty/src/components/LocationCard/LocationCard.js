@@ -1,9 +1,9 @@
 import './LocationCard.css';
 
-function LocationCard() {
+function LocationCard({location}) {
   return (
     <div>
-      LocationCard
+      {location.name}
     </div>
   );
 }

@@ -20,7 +20,7 @@ const CharactersPage = () => {
 
     fetchCharacters();
   }, []);
-
+  
   return (
     <section className="characters-container">
       {characters.map((character) => {
