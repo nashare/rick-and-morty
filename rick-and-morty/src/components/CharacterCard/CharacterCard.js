@@ -2,9 +2,12 @@ import './CharacterCard.css';
 
 function CharacterCard({character}) {
   return (
-    <div key={character.id}>
-      <h2>{character.name}</h2>
-      <img src={character.image} alt={character.name} />
+    <div key={character.id} className="character-card" style={{
+      backgroundImage: `url(${character.image})`
+    }}>
+      <div class="character-name-container">
+        <p>{character.name}</p>
+      </div>
     </div>
   );
 }

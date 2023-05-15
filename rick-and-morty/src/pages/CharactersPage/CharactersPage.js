@@ -22,15 +22,17 @@ const CharactersPage = () => {
   }, []);
   
   return (
-    <section className="characters-container">
-      {characters.map((character) => {
-        return (
-          <Link to={`/characters/${character.id}`} key={character.id} className="link">
-            <CharacterCard character={character} />
-          </Link>
-        );
-      })}
-    </section>
+    <div className="characters-page">
+      <section className="characters-container">
+        {characters.map((character) => {
+          return (
+            <Link to={`/characters/${character.id}`} key={character.id} className="link">
+              <CharacterCard character={character} />
+            </Link>
+          );
+        })}
+      </section>
+    </div>
   );
 };
 

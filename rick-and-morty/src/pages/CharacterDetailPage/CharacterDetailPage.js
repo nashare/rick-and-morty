@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import { useParams } from 'react-router-dom';
 import { Link } from 'react-router-dom';
+import './CharacterDetailPage.css';
 
 function CharacterDetailPage() {
   const { id } = useParams();
@@ -31,48 +32,57 @@ function CharacterDetailPage() {
 
   return (
     <>
+    <div className="character-detail-page-container">
     <img src={character.image} alt={character.name}/>
-    <table>
-      <thead>
-        <tr>
-          <th>Name</th>
-          <th>Status</th>
-          <th>Species</th>
-          <th>Type</th>
-          <th>Gender</th>
-          <th>Origin</th>
-          <th>Location</th>
-          <th>Episodes</th>
-        </tr>
-      </thead>
-      <tbody>
-        <tr key={character.id}>
-          <td>{character.name}</td>
-          <td>{character.status}</td>
-          <td>{character.species}</td>
-          <td>{character.type}</td>
-          <td>{character.gender}</td>
-          <td>
-            <Link to={`/locations/${character.origin.url.split("/").pop()}`} key={character.origin.name} className="link">
-              {character.origin.name}
-            </Link>
-          </td>
-          <td>
-            <Link to={`/locations/${character.location.url.split("/").pop()}`} key={character.location.name} className="link">
-              {character.location.name}
-            </Link>
-          </td>
-          <td>{character.episode.length}</td>
-        </tr>
-      </tbody>
-    </table>
-      <button onClick={toggleVisibility}>See full list of episodes</button>
-      <div className={isListVisible ? '' : 'hidden'}>
+        <table>
+          <tr>
+            <td>Name:</td>
+            <td>{character.name}</td>
+          </tr>
+          <tr>
+            <td>Status:</td>
+            <td>{character.status}</td>
+          </tr>
+          <tr>
+            <td>Species:</td>
+            <td>{character.species}</td>
+          </tr>
+          <tr>
+            <td>Type:</td>
+            <td>{character.type}</td>
+          </tr>
+          <tr>
+            <td>Gender:</td>
+            <td>{character.gender}</td>
+          </tr>
+          <tr>
+            <td>Origin:</td>
+            <td>
+              <Link to={`/locations/${character.origin.url.split("/").pop()}`} key={character.origin.name} className="link">
+                {character.origin.name}
+              </Link>
+            </td>
+          </tr>
+          <tr>
+            <td>Location:</td>
+            <td>
+              <Link to={`/locations/${character.location.url.split("/").pop()}`} key={character.location.name} className="link">
+                {character.location.name}
+              </Link>
+            </td>
+          </tr>
+          <tr>
+            <td>Number of Episodes:</td>
+            <td>{character.episode.length}</td>
+          </tr>
+        </table>
+    </div>
+    <p onClick={toggleVisibility} className="characters-list">See full list of episodes</p>
+      <div className={isListVisible ? 'list-grid' : 'hidden'}>
         {character.episode.map((episode) => {
           return (
-            <Link to={`/episodes/${episode.split("/").pop()}`} key={episode.split("/").pop()}>
-              {episode.split("/").pop()}
-              <br />
+            <Link to={`/episodes/${episode.split("/").pop()}`} className="characters-list-item" key={episode.split("/").pop()}>
+              <p className="characters-list-item-text">{episode.split("/").pop()}</p>
             </Link>
           );
         })}
