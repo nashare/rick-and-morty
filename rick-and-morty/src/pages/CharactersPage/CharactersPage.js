@@ -1,5 +1,8 @@
 import React, { useState, useEffect } from 'react';
 import './CharactersPage.css';
+import { Link } from 'react-router-dom';
+
+import CharacterCard from '../../components/CharacterCard/CharacterCard';
 
 const CharactersPage = () => {
   const [characters, setCharacters] = useState([]);
@@ -19,14 +22,15 @@ const CharactersPage = () => {
   }, []);
 
   return (
-    <div>
-      {characters.map((character) => (
-        <div key={character.id}>
-          <h2>{character.name}</h2>
-          <img src={character.image} alt={character.name} />
-        </div>
-      ))}
-    </div>
+    <section className="characters-container">
+      {characters.map((character) => {
+        return (
+          <Link to={`/characters/${character.id}`} key={character.id} className="link">
+            <CharacterCard character={character} />
+          </Link>
+        );
+      })}
+    </section>
   );
 };
 

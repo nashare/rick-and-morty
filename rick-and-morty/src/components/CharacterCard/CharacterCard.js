@@ -1,9 +1,10 @@
 import './CharacterCard.css';
 
-function CharacterCard() {
+function CharacterCard({character}) {
   return (
-    <div>
-      CharacterCard
+    <div key={character.id}>
+      <h2>{character.name}</h2>
+      <img src={character.image} alt={character.name} />
     </div>
   );
 }
