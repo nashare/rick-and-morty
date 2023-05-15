@@ -1,0 +1,41 @@
+.episode-detail-page-container {
+    margin: 4vmin;
+    display: flex;
+
+}
+
+table {
+    margin-left: 2vmin;
+}
+
+.episode-list {
+    font-size: 3vmin;
+    color: rgb(34, 122, 230);
+    margin-left: 4vmin;
+    text-decoration: underline;
+}
+
+.episode-list:hover {
+    cursor: pointer;
+}
+
+.list-grid {
+    margin-left: 4vmin;
+    display: grid;
+    grid-template-columns: repeat(15, 1fr);
+    gap: 2vmin;
+}
+
+.episode-list-item {
+    text-decoration: none;
+    color: white;
+    width: 7vmin;
+    height: 7vmin;
+    border-radius: 50%;
+    background-color: rgb(120, 125, 130);
+    text-align: center;
+}
+
+.episode-list-item:hover {
+    cursor: pointer;
+}

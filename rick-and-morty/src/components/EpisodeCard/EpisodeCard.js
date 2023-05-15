@@ -2,8 +2,10 @@ import './EpisodeCard.css';
 
 function EpisodeCard({episode}) {
   return (
-    <div>
-      {episode.name}
+    <div key={episode.id} className="episode-card">
+      <div class="episode-name-container">
+        <p>{episode.episode}</p>
+      </div>
     </div>
   );
 }

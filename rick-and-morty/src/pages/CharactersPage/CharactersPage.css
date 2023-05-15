@@ -33,3 +33,8 @@
         grid-template-columns: repeat(1, 1fr);
     }
 }
+
+.p-waiting {
+    margin-left: 4vmin;
+    font-size: 10vmin;
+}

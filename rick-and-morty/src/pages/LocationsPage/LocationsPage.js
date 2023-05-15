@@ -4,7 +4,7 @@ import './LocationsPage.css';
 import LocationCard from '../../components/LocationCard/LocationCard';
 
 const LocationsPage = () => {
-  const [locations, setLocations] = useState([]);
+  const [locations, setLocations] = useState(null);
 
   useEffect(() => {
     const fetchLocations = async () => {
@@ -19,6 +19,10 @@ const LocationsPage = () => {
 
     fetchLocations();
   }, []);
+
+  if (!locations) {
+    return <p className="p-waiting">Please wait...</p>;
+  }
 
   return (
     <section className="locations-container">

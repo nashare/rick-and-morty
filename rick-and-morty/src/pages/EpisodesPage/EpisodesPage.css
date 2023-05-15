@@ -1,0 +1,35 @@
+.episodes-page {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.episodes-container {
+    margin: 4vmin;
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 4vmin;
+}
+
+@media screen and (max-width: 1400px) {
+    .characters-container {
+        grid-template-columns: repeat(3, 1fr);
+    }
+}
+
+@media screen and (max-width: 1000px) {
+    .characters-container {
+        grid-template-columns: repeat(2, 1fr);
+    }
+}
+
+@media screen and (max-width: 700px) {
+    .characters-container {
+        grid-template-columns: repeat(1, 1fr);
+    }
+}
+
+.p-waiting {
+    margin-left: 4vmin;
+    font-size: 4vmin;
+}

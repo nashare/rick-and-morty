@@ -5,7 +5,7 @@ import { Link } from 'react-router-dom';
 import CharacterCard from '../../components/CharacterCard/CharacterCard';
 
 const CharactersPage = () => {
-  const [characters, setCharacters] = useState([]);
+  const [characters, setCharacters] = useState(null);
 
   useEffect(() => {
     const fetchCharacters = async () => {
@@ -20,6 +20,10 @@ const CharactersPage = () => {
 
     fetchCharacters();
   }, []);
+
+  if (!characters) {
+    return <p className="p-waiting">Please wait...</p>;
+  }
   
   return (
     <div className="characters-page">

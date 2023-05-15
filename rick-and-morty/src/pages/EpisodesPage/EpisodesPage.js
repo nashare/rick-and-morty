@@ -4,7 +4,7 @@ import { Link } from 'react-router-dom';
 import EpisodeCard from '../../components/EpisodeCard/EpisodeCard';
 
 const EpisodesPage = () => {
-  const [episodes, setEpisodes] = useState([]);
+  const [episodes, setEpisodes] = useState(null);
 
   useEffect(() => {
     const fetchEpisodes = async () => {
@@ -20,16 +20,22 @@ const EpisodesPage = () => {
     fetchEpisodes();
   }, []);
 
+  if (!episodes) {
+    return <p className="p-waiting">Please wait...</p>;
+  }
+
   return (
-    <section className="episodes-container">
-      {episodes.map((episode) => {
-        return (
-          <Link to={`/episodes/${episode.id}`} key={episode.id} className="link">
-            <EpisodeCard episode={episode} />
-          </Link>
-        );
-      })}
-    </section>
+    <div className="episodes-page">
+      <section className="episodes-container">
+        {episodes.map((episode) => {
+          return (
+            <Link to={`/episodes/${episode.id}`} key={episode.id} className="link">
+              <EpisodeCard episode={episode} />
+            </Link>
+          );
+        })}
+      </section>
+    </div>
   );
 };
 

@@ -32,30 +32,32 @@ function EpisodeDetailPage() {
 
   return (
     <>
-      <table>
-        <thead>
+      <div className="episode-detail-page-container">
+        <table>
           <tr>
-            <th>Name</th>
-            <th>Date</th>
-            <th>Episode</th>
-          </tr>
-        </thead>
-        <tbody>
-          <tr key={episode.id}>
-            <td>{episode.name}</td>
-            <td>{episode.air_date}</td>
+            <td>Episode:</td>
             <td>{episode.episode}</td>
           </tr>
-        </tbody>
-      </table>
-      <p>Number of characters: {episode.characters.length}</p>
-      <button onClick={toggleVisibility}>See full list of characters</button>
-      <div className={isListVisible ? '' : 'hidden'}>
+          <tr>
+            <td>Name:</td>
+            <td>{episode.name}</td>
+          </tr>
+          <tr>
+            <td>Date:</td>
+            <td>{episode.air_date}</td>
+          </tr>
+          <tr>
+            <td>Number of Characters:</td>
+            <td>{episode.characters.length}</td>
+          </tr>
+        </table>
+      </div>
+      <p onClick={toggleVisibility} className="episode-list">See full list of characters</p>
+      <div className={isListVisible ? 'list-grid' : 'hidden'}>
         {episode.characters.map((character) => {
           return (
-            <Link to={`/characters/${character.split("/").pop()}`} key={character.split("/").pop()}>
-              {character.split("/").pop()}
-              <br />
+            <Link to={`/characters/${character.split("/").pop()}`} className="episode-list-item" key={character.split("/").pop()}>
+              <p className="episode-list-item-text">{character.split("/").pop()}</p>
             </Link>
           );
         })}
