@@ -34,7 +34,7 @@ function CharacterDetailPage() {
     <>
     <div className="character-detail-page-container">
     <img src={character.image} alt={character.name}/>
-        <table>
+        <table className="character-table">
           <tr>
             <td>Name:</td>
             <td>{character.name}</td>
@@ -49,7 +49,9 @@ function CharacterDetailPage() {
           </tr>
           <tr>
             <td>Type:</td>
-            <td>{character.type}</td>
+            <td>
+              {character.type !== "" ? character.type : "n/a"}
+             </td>
           </tr>
           <tr>
             <td>Gender:</td>

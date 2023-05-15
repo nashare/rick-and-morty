@@ -23,17 +23,18 @@ const LocationsPage = () => {
   if (!locations) {
     return <p className="p-waiting">Please wait...</p>;
   }
-
   return (
-    <section className="locations-container">
-      {locations.map((location) => {
-        return (
+    <div className="locations-page">
+      <section className="locations-container">
+        {locations.map((location) => {
+          return (
           <Link to={`/locations/${location.id}`} key={location.id} className="link">
             <LocationCard location={location} />
           </Link>
-        );
-      })}
-    </section>
+          );
+        })}
+      </section>
+    </div>
   );
 };
 

@@ -4,10 +4,6 @@
 
 }
 
-table {
-    margin-left: 2vmin;
-}
-
 .characters-list {
     font-size: 3vmin;
     color: rgb(34, 122, 230);
@@ -32,10 +28,14 @@ table {
     width: 7vmin;
     height: 7vmin;
     border-radius: 50%;
-    background-color:rgb(120, 125, 130);
+    background-color:rgb(211, 236, 21);;
     text-align: center;
 }
 
 .characters-list-item:hover {
     cursor: pointer;
+}
+
+.character-table {
+    margin-left: 3vmin;
 }

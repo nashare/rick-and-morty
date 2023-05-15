@@ -32,34 +32,44 @@ function LocationDetailPage() {
 
   return (
     <>
-    <table>
-      <thead>
-        <tr>
-          <th>Name</th>
-          <th>Type</th>
-          <th>Dimension</th>
-        </tr>
-      </thead>
-      <tbody>
-        <tr key={location.id}>
-          <td>{location.name}</td>
-          <td>{location.type}</td>
-          <td>{location.dimension}</td>
-        </tr>
-      </tbody>
-    </table>
-      <p>Number of residents: {location.residents.length}</p>
-      <button onClick={toggleVisibility}>See full list of residents</button>
-      <div className={isListVisible ? '' : 'hidden'}>
-      {location.residents.map((resident) => {
-      return (
-        <Link to={`/characters/${resident.split("/").pop()}`} key={resident.split("/").pop()}>
-          {resident.split("/").pop()}
-          <br />
-        </Link>
-      );
-    })}
+      <div className="location-detail-page-container">
+        <table>
+          <tr>
+            <td>Name</td>
+            <td>{location.name}</td>
+          </tr>
+          <tr>
+            <td>Type:</td>
+            <td>{location.type}</td>
+          </tr>
+          <tr>
+            <td>Dimension:</td>
+            <td>{location.dimension}</td>
+          </tr>
+          <tr>
+            <td>Number of Residents:</td>
+            <td>{location.residents.length}</td>
+          </tr>
+        </table>
       </div>
+      {location.residents.length > 0 && (
+        <div>
+          <p onClick={toggleVisibility} className="location-list">
+            See full list of residents
+          </p>
+          <div className={isListVisible ? 'list-grid' : 'hidden'}>
+            {location.residents.map((resident) => (
+              <Link
+                to={`/characters/${resident.split("/").pop()}`}
+                className="episode-list-item"
+                key={resident.split("/").pop()}
+              >
+                <p className="location-list-item-text">{resident.split("/").pop()}</p>
+              </Link>
+            ))}
+          </div>
+        </div>
+      )}
     </>
   );
 }
