@@ -1,0 +1,17 @@
+nav {
+    display: flex;
+    height: 10vmin;
+    background-color: rgb(155, 220, 59);
+    font-weight: 400;
+    align-items: center;
+    justify-content: flex-start;
+}
+
+.nav-link {
+    text-decoration: none;
+    color: rgb(34, 122, 230);
+    margin: 2vmin;
+    font-size: 3.5vmin;
+    -webkit-text-stroke: 0.1vmin black;
+    letter-spacing: 0.2vmin;
+}
