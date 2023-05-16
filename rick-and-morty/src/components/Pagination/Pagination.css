@@ -25,3 +25,14 @@
 .pagination-button:hover {
     cursor: pointer;
 }
+
+i {
+    margin: 0.3vmin;
+    width: 50px;
+    width: 50px;
+    color: rgb(155, 220, 59);
+}
+
+.pagination-button-clicked {
+    color: white;
+}

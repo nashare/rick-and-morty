@@ -42,7 +42,7 @@ const CharactersPage = () => {
         })}
       </section>
     </div>
-    <Pagination info={info} setPage={setPage} />
+      <Pagination info={info} page={page} setPage={setPage} />
     </>
   );
 };
