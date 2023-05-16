@@ -34,6 +34,7 @@ function LocationDetailPage() {
     <>
       <div className="location-detail-page-container">
         <table>
+          <tbody>
           <tr>
             <td>Name</td>
             <td>{location.name}</td>
@@ -50,6 +51,7 @@ function LocationDetailPage() {
             <td>Number of Residents:</td>
             <td>{location.residents.length}</td>
           </tr>
+          </tbody>
         </table>
       </div>
       {location.residents.length > 0 && (

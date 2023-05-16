@@ -34,6 +34,7 @@ function EpisodeDetailPage() {
     <>
       <div className="episode-detail-page-container">
         <table>
+          <tbody>
           <tr>
             <td>Episode:</td>
             <td>{episode.episode}</td>
@@ -50,6 +51,7 @@ function EpisodeDetailPage() {
             <td>Number of Characters:</td>
             <td>{episode.characters.length}</td>
           </tr>
+          </tbody>
         </table>
       </div>
       <p onClick={toggleVisibility} className="episode-list">See full list of characters</p>

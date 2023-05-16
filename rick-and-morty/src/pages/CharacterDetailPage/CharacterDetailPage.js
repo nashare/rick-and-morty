@@ -35,6 +35,7 @@ function CharacterDetailPage() {
     <div className="character-detail-page-container">
     <img src={character.image} alt={character.name}/>
         <table className="character-table">
+          <tbody>
           <tr>
             <td>Name:</td>
             <td>{character.name}</td>
@@ -49,9 +50,7 @@ function CharacterDetailPage() {
           </tr>
           <tr>
             <td>Type:</td>
-            <td>
-              {character.type !== "" ? character.type : "n/a"}
-             </td>
+            <td>{character.type !== "" ? character.type : "n/a"}</td>
           </tr>
           <tr>
             <td>Gender:</td>
@@ -59,14 +58,9 @@ function CharacterDetailPage() {
           </tr>
           <tr>
             <td>Origin:</td>
-
             {character.origin.name !== 'unknown' ? (
-              <Link to={`/locations/${character.origin.url.split('/').pop()}`} key={character.origin.name} className="link">
-                {character.origin.name}
-              </Link>
-            ) : (
-              character.origin.name
-            )}
+                <td><Link to={`/locations/${character.origin.url.split('/').pop()}`} key={character.origin.name} className="link">{character.origin.name}</Link></td>
+              ) : <td>character.origin.name</td>}
           </tr>
           <tr>
             <td>Location:</td>
@@ -80,6 +74,7 @@ function CharacterDetailPage() {
             <td>Number of Episodes:</td>
             <td>{character.episode.length}</td>
           </tr>
+          </tbody>
         </table>
     </div>
     <p onClick={toggleVisibility} className="characters-list">See full list of episodes</p>

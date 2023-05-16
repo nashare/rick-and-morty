@@ -11,6 +11,7 @@ const EpisodesPage = () => {
       try {
         const response = await fetch('https://rickandmortyapi.com/api/episode');
         const data = await response.json();
+        console.log(data);
         setEpisodes(data.results);
       } catch (error) {
         console.error('Error:', error);

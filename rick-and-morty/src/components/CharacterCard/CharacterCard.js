@@ -5,7 +5,7 @@ function CharacterCard({character}) {
     <div key={character.id} className="character-card" style={{
       backgroundImage: `url(${character.image})`
     }}>
-      <div class="character-name-container">
+      <div className="character-name-container">
         <p>{character.name}</p>
       </div>
     </div>

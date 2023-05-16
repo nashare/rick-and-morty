@@ -1,0 +1,17 @@
+.search-container {
+    margin-right: 10vmin;
+}
+
+.search-input {
+    width: 40vmin;
+    height: 5vmin;
+    border-radius: 25px;
+    border: none;
+    font-size: 3vmin;
+    padding: 0.5vmin 3vmin;
+    font-family: 'Bowlby One SC';
+}
+
+input:focus-visible {
+    outline: none;
+}

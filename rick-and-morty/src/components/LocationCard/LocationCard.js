@@ -3,7 +3,7 @@ import './LocationCard.css';
 function LocationCard({location}) {
   return (
     <div key={location.id} className="location-card">
-      <div class="location-name-container">
+      <div className="location-name-container">
         <p>{location.name}</p>
       </div>
     </div>
