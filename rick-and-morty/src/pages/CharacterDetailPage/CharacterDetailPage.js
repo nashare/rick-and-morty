@@ -50,7 +50,7 @@ function CharacterDetailPage() {
   return (
     <>
     <div className="character-detail-page-container">
-    <img src={character.image} alt={character.name}/>
+    <img src={character.image} alt={character.name} className="character-image"/>
         <table className="character-table">
           <tbody>
           <tr>
