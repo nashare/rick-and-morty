@@ -2,16 +2,19 @@ import React, { useState, useEffect } from 'react';
 import './EpisodesPage.css';
 import { Link } from 'react-router-dom';
 import EpisodeCard from '../../components/EpisodeCard/EpisodeCard';
+import Pagination from '../../components/Pagination/Pagination';
 
 const EpisodesPage = () => {
   const [episodes, setEpisodes] = useState(null);
+  const [info, setInfo] = useState(null);
+  const [page, setPage] = useState(1);
 
   useEffect(() => {
     const fetchEpisodes = async () => {
       try {
-        const response = await fetch('https://rickandmortyapi.com/api/episode');
+        const response = await fetch(`https://rickandmortyapi.com/api/episode?page=${page}`);
         const data = await response.json();
-        console.log(data);
+        setInfo(data.info);
         setEpisodes(data.results);
       } catch (error) {
         console.error('Error:', error);
@@ -26,6 +29,7 @@ const EpisodesPage = () => {
   }
 
   return (
+    <>
     <div className="episodes-page">
       <section className="episodes-container">
         {episodes.map((episode) => {
@@ -37,6 +41,8 @@ const EpisodesPage = () => {
         })}
       </section>
     </div>
+      <Pagination info={info} setPage={setPage} />
+    </>
   );
 };
 

@@ -2,15 +2,19 @@ import React, { useState, useEffect } from 'react';
 import { Link } from 'react-router-dom';
 import './LocationsPage.css';
 import LocationCard from '../../components/LocationCard/LocationCard';
+import Pagination from '../../components/Pagination/Pagination';
 
 const LocationsPage = () => {
   const [locations, setLocations] = useState(null);
+  const [info, setInfo] = useState(null);
+  const [page, setPage] = useState(1);
 
   useEffect(() => {
     const fetchLocations = async () => {
       try {
-        const response = await fetch('https://rickandmortyapi.com/api/location');
+        const response = await fetch(`https://rickandmortyapi.com/api/location?page=${page}`);
         const data = await response.json();
+        setInfo(data.info);
         setLocations(data.results);
       } catch (error) {
         console.error('Error:', error);
@@ -18,12 +22,13 @@ const LocationsPage = () => {
     };
 
     fetchLocations();
-  }, []);
+  }, [page]);
 
   if (!locations) {
     return <p className="p-waiting">Please wait...</p>;
   }
   return (
+    <>
     <div className="locations-page">
       <section className="locations-container">
         {locations.map((location) => {
@@ -35,6 +40,8 @@ const LocationsPage = () => {
         })}
       </section>
     </div>
+      <Pagination info={info} setPage={setPage}/>
+    </>
   );
 };
 

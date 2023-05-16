@@ -13,11 +13,13 @@ import EpisodeDetailPage from '../EpisodeDetailPage/EpisodeDetailPage';
 function App() {
   const [characters, setCharacters] = useState(null);
   const [searchCharacters, setSearchCharacters] = useState("");
+  const [info, setInfo] = useState(null);
+  const [page, setPage] = useState(1);
 
   useEffect(() => {
     const fetchCharacters = async () => {
       try {
-        const response = await fetch(`https://rickandmortyapi.com/api/character`);
+        const response = await fetch(`https://rickandmortyapi.com/api/character${page}`);
         const data = await response.json();
         setCharacters(data.results);
       } catch (error) {

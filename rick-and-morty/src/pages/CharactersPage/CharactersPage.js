@@ -1,4 +1,4 @@
-
+import Pagination from '../../components/Pagination/Pagination';
 import './CharactersPage.css';
 import { Link } from 'react-router-dom';
 
@@ -12,6 +12,7 @@ const CharactersPage = ({characters}) => {
 
   
   return (
+    <>
     <div className="characters-page">
       <section className="characters-container">
         {characters.map((character) => {
@@ -23,6 +24,8 @@ const CharactersPage = ({characters}) => {
         })}
       </section>
     </div>
+    <Pagination />
+    </>
   );
 };
 

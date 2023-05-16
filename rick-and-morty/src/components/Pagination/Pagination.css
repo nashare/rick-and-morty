@@ -1,0 +1,6 @@
+.pagination-container {
+    margin: 0 auto 5vmin auto;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
