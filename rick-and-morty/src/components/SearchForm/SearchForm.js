@@ -2,7 +2,7 @@ import './SearchForm.css';
 import { useState } from 'react';
 import { useNavigate } from "react-router-dom";
 
-function SearchForm({ setSearchCharacters }) {
+function SearchForm({ setSearchCharacters, setSearchInfo }) {
   const [input, setInput] = useState("");
   const navigate = useNavigate();
 
@@ -22,6 +22,7 @@ function SearchForm({ setSearchCharacters }) {
       try {
         const response = await fetch(`https://rickandmortyapi.com/api/character/?name=${input}`);
         const data = await response.json();
+        setSearchInfo(data.info);
         setSearchCharacters(data.results);
         navigate('/search');
       } catch (error) {

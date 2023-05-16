@@ -22,7 +22,7 @@ const EpisodesPage = () => {
     };
 
     fetchEpisodes();
-  }, []);
+  }, [page]);
 
   if (!episodes) {
     return <p className="p-waiting">Please wait...</p>;

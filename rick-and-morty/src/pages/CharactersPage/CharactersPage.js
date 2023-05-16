@@ -4,7 +4,7 @@ import { Link } from 'react-router-dom';
 
 import CharacterCard from '../../components/CharacterCard/CharacterCard';
 
-const CharactersPage = ({characters}) => {
+const CharactersPage = ({characters, info, setPage}) => {
 
   if (!characters) {
     return <p className="p-waiting">No results found...</p>;
@@ -24,7 +24,7 @@ const CharactersPage = ({characters}) => {
         })}
       </section>
     </div>
-    <Pagination />
+    <Pagination info={info} setPage={setPage} />
     </>
   );
 };

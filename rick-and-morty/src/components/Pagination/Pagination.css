@@ -1,6 +1,22 @@
 .pagination-container {
-    margin: 0 auto 5vmin auto;
+    margin: 0 auto 4vmin auto;
     display: flex;
     align-items: center;
     justify-content: center;
+}
+
+.pagination-button {
+    margin: 0.3vmin;
+    border-radius: 50%;
+    width: 4vmin;
+    height: 4vmin;
+    background-color: rgb(155, 220, 59);
+    text-align: center;
+    border: none;
+    font-family: 'Bowlby One SC';
+    color: rgb(91, 88, 88);
+}
+
+.pagination-button:hover {
+    cursor: pointer;
 }
