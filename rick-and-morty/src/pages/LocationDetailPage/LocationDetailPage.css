@@ -19,24 +19,41 @@
     cursor: pointer;
 }
 
-.list-grid {
-    margin-left: 4vmin;
+.location-grid {
+    margin: 0 4vmin;
     display: grid;
-    grid-template-columns: repeat(15, 1fr);
-    gap: 2vmin;
+    grid-template-columns: repeat(12, 1fr);
+    gap: 1vmin;
 }
 
 .location-list-item {
     text-decoration: none;
-    color: white;
-    width: 7vmin;
-    height: 7vmin;
-    border-radius: 50%;
-    background-color: rgb(211, 236, 21);
-    ;
-    text-align: center;
 }
 
 .location-list-item:hover {
     cursor: pointer;
+}
+
+.episode-image {
+    width: 12vmin;
+    height: 12vmin;
+    border-radius: 50%;
+}
+
+@media screen and (max-width: 1400px) {
+    .location-grid {
+        grid-template-columns: repeat(10, 1fr);
+    }
+}
+
+@media screen and (max-width: 1000px) {
+    .location-grid {
+        grid-template-columns: repeat(8, 1fr);
+    }
+}
+
+@media screen and (max-width: 700px) {
+    .location-grid {
+        grid-template-columns: repeat(6, 1fr);
+    }
 }
