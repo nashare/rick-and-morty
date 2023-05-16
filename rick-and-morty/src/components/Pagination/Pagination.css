@@ -8,10 +8,13 @@
 }
 
 .pagination-button {
+    display: flex;
+    justify-content: center;
+    align-items: center;
     margin: 0.3vmin;
     border-radius: 50%;
-    width: 4vmin;
-    height: 4vmin;
+    width: 5vmin;
+    height: 5vmin;
     background-color: rgb(155, 220, 59);
     text-align: center;
     border: none;

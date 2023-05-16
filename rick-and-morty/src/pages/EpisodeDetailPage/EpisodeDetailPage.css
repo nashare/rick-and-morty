@@ -15,23 +15,3 @@
     cursor: pointer;
 }
 
-.list-grid {
-    margin-left: 4vmin;
-    display: grid;
-    grid-template-columns: repeat(15, 1fr);
-    gap: 2vmin;
-}
-
-.episode-list-item {
-    text-decoration: none;
-    color: white;
-    width: 7vmin;
-    height: 7vmin;
-    border-radius: 50%;
-    background-color: rgb(211, 236, 21);;
-    text-align: center;
-}
-
-.episode-list-item:hover {
-    cursor: pointer;
-}

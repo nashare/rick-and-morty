@@ -7,23 +7,40 @@ function EpisodeDetailPage() {
   const { id } = useParams();
   const [episode, setEpisode] = useState(null);
   const [isListVisible, setListVisible] = useState(false);
+  const [imageUrls, setImageUrls] = useState([]);
 
   const toggleVisibility = () => {
     setListVisible(!isListVisible);
   };
 
+  const fetchImageUrls = async (residentUrls) => {
+    const urls = await Promise.all(
+      residentUrls.map(async (url) => {
+        try {
+          const response = await fetch(url);
+          const data = await response.json();
+          return data.image;
+        } catch (error) {
+          console.error('Error:', error);
+          return '';
+        }
+      })
+    );
+    setImageUrls(urls);
+  };
+
   useEffect(() => {
-    const fetchEpisode = async () => {
+    const fetchLocation = async () => {
       try {
         const response = await fetch(`https://rickandmortyapi.com/api/episode/${id}`);
         const data = await response.json();
         setEpisode(data);
+        await fetchImageUrls(data.characters);
       } catch (error) {
         console.error('Error:', error);
       }
     };
-
-    fetchEpisode();
+    fetchLocation();
   }, [id]);
 
   if (!episode) {
@@ -55,14 +72,15 @@ function EpisodeDetailPage() {
         </table>
       </div>
       <p onClick={toggleVisibility} className="episode-list">See full list of characters</p>
-      <div className={isListVisible ? 'list-grid' : 'hidden'}>
-        {episode.characters.map((character) => {
-          return (
-            <Link to={`/characters/${character.split("/").pop()}`} className="episode-list-item" key={character.split("/").pop()}>
-              <p className="episode-list-item-text">{character.split("/").pop()}</p>
-            </Link>
-          );
-        })}
+      <div className={isListVisible ? 'location-grid' : 'hidden'}>
+        {imageUrls.map((imageUrl, index) => (
+          <Link
+            to={`/characters/${episode.characters[index].split('/').pop()}`}
+            key={episode.characters[index].split('/').pop()}
+          >
+            <img className="episode-image" src={imageUrl} alt="character" />
+          </Link>
+        ))}
       </div>
     </>
   );
