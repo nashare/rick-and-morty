@@ -30,12 +30,12 @@
     color: white;
 }
 
-.inactive {
-    color: rgb(191, 189, 189);
-}
-
 .fa-regular {
     font-size: 3.5vmin;
     color: rgb(155, 220, 59);
     margin: 0.3vmin;
+}
+
+.inactive {
+    color: rgb(191, 189, 189);
 }

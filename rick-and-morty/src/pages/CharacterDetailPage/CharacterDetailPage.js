@@ -7,9 +7,25 @@ function CharacterDetailPage() {
   const { id } = useParams();
   const [character, setCharacter] = useState(null);
   const [isListVisible, setListVisible] = useState(false);
+  const [episodes, setEpisodes] = useState([]);
 
   const toggleVisibility = () => {
     setListVisible(!isListVisible);
+  };
+  const fetchEpisodes = async (episodesUrls) => {
+    const episodesNames = await Promise.all(
+      episodesUrls.map(async (url) => {
+        try {
+          const response = await fetch(url);
+          const data = await response.json();
+          return data.episode;
+        } catch (error) {
+          console.error('Error:', error);
+          return '';
+        }
+      })
+    );
+    setEpisodes(episodesNames);
   };
 
   useEffect(() => {
@@ -17,6 +33,7 @@ function CharacterDetailPage() {
       try {
         const response = await fetch(`https://rickandmortyapi.com/api/character/${id}`);
         const data = await response.json();
+        await fetchEpisodes(data.episode)
         setCharacter(data);
       } catch (error) {
         console.error('Error:', error);
@@ -79,13 +96,14 @@ function CharacterDetailPage() {
     </div>
     <p onClick={toggleVisibility} className="characters-list">See full list of episodes</p>
       <div className={isListVisible ? 'list-grid' : 'hidden'}>
-        {character.episode.map((episode) => {
-          return (
-            <Link to={`/episodes/${episode.split("/").pop()}`} className="characters-list-item" key={episode.split("/").pop()}>
-              <p className="characters-list-item-text">{episode.split("/").pop()}</p>
-            </Link>
-          );
-        })}
+        {episodes.map((episodeName, index) => (
+          <Link
+            to={`/episodes/${character.episode[index].split('/').pop()}`}
+            key={character.episode[index].split('/').pop()}
+            className="link"
+          >{episodeName}
+          </Link>
+        ))}
       </div>
     </>
   );
