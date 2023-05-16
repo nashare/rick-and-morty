@@ -27,7 +27,7 @@ function LocationDetailPage() {
   }, [id]);
 
   if (!location) {
-    return <p>Please wait...</p>;
+    return <div className="location-detail-page-container"><p className="p-waiting">Please wait...</p></div>;
   }
 
   return (

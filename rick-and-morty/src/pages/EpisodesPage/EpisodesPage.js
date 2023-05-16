@@ -25,7 +25,7 @@ const EpisodesPage = () => {
   }, [page]);
 
   if (!episodes) {
-    return <p className="p-waiting">Please wait...</p>;
+    return <div className="episodes-page"><p className="p-waiting">Please wait...</p></div>;
   }
 
   return (

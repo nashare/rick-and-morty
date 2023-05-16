@@ -25,7 +25,7 @@ const LocationsPage = () => {
   }, [page]);
 
   if (!locations) {
-    return <p className="p-waiting">Please wait...</p>;
+    return <div className="locations-page"><p className="p-waiting">Please wait...</p></div>;
   }
   return (
     <>

@@ -27,7 +27,7 @@ function CharacterDetailPage() {
   }, [id]);
 
   if (!character) {
-    return <p>Please wait...</p>;
+    return <div className="character-detail-page-container"><p className="p-waiting">Please wait...</p></div>;
   }
 
   return (

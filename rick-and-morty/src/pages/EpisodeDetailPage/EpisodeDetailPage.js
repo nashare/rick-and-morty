@@ -27,7 +27,7 @@ function EpisodeDetailPage() {
   }, [id]);
 
   if (!episode) {
-    return <p>Please wait...</p>;
+    return <div className="episode-detail-page-container"><p className="p-waiting">Please wait...</p></div>;
   }
 
   return (
