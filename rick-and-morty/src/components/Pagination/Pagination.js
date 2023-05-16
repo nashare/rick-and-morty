@@ -3,23 +3,18 @@ import './Pagination.css';
 function Pagination({ info, page, setPage }) {
   const buttons = [];
   for (let i = 1; i <= info.pages; i++) {
-    if (i===page) {
-      buttons.push(
-        <button className="pagination-button pagination-button-clicked" key={i} onClick={() => setPage(i)}>
-          {i}
-        </button>
-      );
-    } else {
-      buttons.push(
-        <button className="pagination-button" key={i} onClick={() => setPage(i)}>
-          {i}
-        </button>
-      );
-    }
+    const isCurrentPage = i === page;
+    const buttonClass = isCurrentPage ? 'pagination-button pagination-button-clicked' : 'pagination-button';
+
+    buttons.push(
+      <button className={buttonClass} key={i} onClick={() => setPage(i)}>
+        {i}
+      </button>
+    );
   }
 
   function leftArrowClick() {
-    if (page >= 1)
+    if (page > 1)
     setPage(page-1);
   }
 
@@ -33,9 +28,9 @@ function Pagination({ info, page, setPage }) {
     return (
       <>
     <div className="pagination-container">
-      <i className="fa-regular fa-circle-left" onClick={leftArrowClick}></i>
+          <i className={`fa-regular fa-circle-left ${page === 1 ? 'inactive' : ''}`} onClick={leftArrowClick}></i>
       {buttons}
-          <i className="fa-regular fa-circle-right" onClick={rightArrowClick}></i>
+          <i className={`fa-regular fa-circle-right ${page === info.pages ? 'inactive' : ''}`} onClick={rightArrowClick}></i>
     </div>
       </>
     );

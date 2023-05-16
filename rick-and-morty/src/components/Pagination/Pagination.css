@@ -26,13 +26,16 @@
     cursor: pointer;
 }
 
-i {
-    margin: 0.3vmin;
-    width: 50px;
-    width: 50px;
-    color: rgb(155, 220, 59);
-}
-
 .pagination-button-clicked {
     color: white;
+}
+
+.inactive {
+    color: rgb(191, 189, 189);
+}
+
+.fa-regular {
+    font-size: 3.5vmin;
+    color: rgb(155, 220, 59);
+    margin: 0.3vmin;
 }
