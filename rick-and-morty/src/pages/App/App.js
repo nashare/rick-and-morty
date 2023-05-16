@@ -11,39 +11,21 @@ import LocationDetailPage from '../LocationDetailPage/LocationDetailPage';
 import EpisodeDetailPage from '../EpisodeDetailPage/EpisodeDetailPage';
 
 function App() {
-  const [characters, setCharacters] = useState(null);
   const [searchCharacters, setSearchCharacters] = useState("");
-  const [info, setInfo] = useState(null);
   const [searchInfo, setSearchInfo] = useState(null);
   const [page, setPage] = useState(1);
-  const [searchPage, setSearchPage] = useState(1);
-
-  useEffect(() => {
-    const fetchCharacters = async () => {
-      try {
-        const response = await fetch(`https://rickandmortyapi.com/api/character?page=${page}`);
-        const data = await response.json();
-        setInfo(data.info)
-        setCharacters(data.results);
-      } catch (error) {
-        console.error('Error:', error);
-      }
-    };
-
-    fetchCharacters();
-  }, [page]);
 
   return (
     <main className="App">
       <NavBar setSearchCharacters={setSearchCharacters} setSearchInfo={setSearchInfo}/>
       <Routes>
-        <Route path="/" element={<CharactersPage characters={characters} info={info} setPage={setPage}/>} />
+        <Route path="/" element={<CharactersPage />} />
         <Route path="/characters/:id" element={<CharacterDetailPage />} />
         <Route path="/locations" element={<LocationsPage />} />
         <Route path="/locations/:id" element={<LocationDetailPage />} />
         <Route path="/episodes" element={<EpisodesPage />} />
         <Route path="/episodes/:id" element={<EpisodeDetailPage />} />
-        <Route path="/search" element={<CharactersPage characters={searchCharacters} info={searchInfo} setPage={setSearchPage} />} />
+        <Route path="/search" element={<CharactersPage characters={searchCharacters} info={searchInfo} setPage={setPage} />} />
       </Routes>
     </main>
   );
