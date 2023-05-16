@@ -15,3 +15,15 @@ nav {
     -webkit-text-stroke: 0.1vmin black;
     letter-spacing: 0.2vmin;
 }
+
+@media screen and (max-width: 1000px) {
+    nav {
+        flex-direction: column;
+        height: 20vmin;
+        justify-content: center;
+    }
+
+    .nav-link {
+        font-size: 4.2vmin;
+    }
+}
