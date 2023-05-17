@@ -8,16 +8,12 @@ import LocationsPage from '../LocationsPage/LocationsPage';
 import EpisodesPage from '../EpisodesPage/EpisodesPage';
 import CharacterDetailPage from '../CharacterDetailPage/CharacterDetailPage';
 import LocationDetailPage from '../LocationDetailPage/LocationDetailPage';
-import LocationsTypePage from '../LocationsTypePage/LocationsTypePage';
-import LocationsDimensionPage from '../LocationsDimensionPage/LocationsDimensionPage';
+import LocationsFilerPage from '../LocationsFilerPage/LocationsFilerPage';
 import EpisodeDetailPage from '../EpisodeDetailPage/EpisodeDetailPage';
 import CharactersSearchPage from '../CharactersSearchPage/CharactersSearchPage';
 
 function App() {
   const [searchInput, setSearchInput] = useState(null);
-  const [locationType, setLocationType] = useState(null);
-  const [locationDimension, setLocationDimension] = useState(null);
-  console.log(locationDimension);
 
   return (
     <main className="App">
@@ -27,9 +23,8 @@ function App() {
         <Route path="/characters" element={<CharactersPage />} />
         <Route path="/characters/:id" element={<CharacterDetailPage />} />
         <Route path="/locations" element={<LocationsPage />} />
-        <Route path="/locations/:id" element={<LocationDetailPage setLocationType={setLocationType} setLocationDimension={setLocationDimension}/>} />
-        <Route path="/locations/type/:id" element={<LocationsTypePage locationType={locationType}/>} />
-        <Route path="/locations/dimension/:id" element={<LocationsDimensionPage locationDimension={locationDimension} />} />
+        <Route path="/locations/:id" element={<LocationDetailPage />} />
+        <Route path="/locations/:paramId/:paramKeyword" element={<LocationsFilerPage />} />
         <Route path="/episodes" element={<EpisodesPage />} />
         <Route path="/episodes/:id" element={<EpisodeDetailPage />} />
         <Route path="/search" element={<CharactersSearchPage searchInput={searchInput} />} />
