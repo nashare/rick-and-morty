@@ -59,19 +59,50 @@ function CharacterDetailPage() {
           </tr>
           <tr>
             <td>Status:</td>
-            <td>{character.status}</td>
+            <td>
+                <Link
+                  to={`/characters/status/${character.status}`}
+                  key={character.status}
+                  className="link"
+                >
+                  {character.status}
+                </Link>
+              </td>
           </tr>
           <tr>
             <td>Species:</td>
-            <td>{character.species}</td>
+            <td>
+                <Link
+                  to={`/characters/species/${character.species}`}
+                  key={character.species}
+                  className="link"
+                >
+                  {character.species}
+                </Link>
+              </td>
           </tr>
           <tr>
             <td>Type:</td>
-            <td>{character.type !== "" ? character.type : "n/a"}</td>
+              <td>{character.type !== "" ? 
+              <Link
+                to={`/characters/type/${character.type}`}
+                  key={character.type}
+                className="link"
+              >
+                {character.type}
+              </Link> : "n/a"}</td>
           </tr>
           <tr>
             <td>Gender:</td>
-            <td>{character.gender}</td>
+              <td>                
+                <Link
+                  to={`/characters/gender/${character.gender}`}
+                  key={character.gender}
+                className="link"
+              >
+                  {character.gender}
+              </Link>
+              </td>
           </tr>
           <tr>
             <td>Origin:</td>
@@ -82,9 +113,12 @@ function CharacterDetailPage() {
           <tr>
             <td>Location:</td>
             <td>
-              <Link to={`/locations/${character.location.url.split("/").pop()}`} key={character.location.name} className="link">
-                {character.location.name}
-              </Link>
+                {character.location.name !== 'unknown' ? (
+                  <td><Link to={`/locations/${character.location.url.split("/").pop()}`} key={character.location.name} className="link">
+                    {character.location.name}
+                  </Link></td>
+                ) : <td>{character.origin.name}</td>}
+
             </td>
           </tr>
           <tr>

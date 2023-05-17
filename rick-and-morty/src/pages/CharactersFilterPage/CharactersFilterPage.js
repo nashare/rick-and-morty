@@ -1,19 +1,20 @@
 import Pagination from '../../components/Pagination/Pagination';
-import './CharactersSearchPage.css';
 import { Link } from 'react-router-dom';
 import React, { useState, useEffect } from 'react';
+import { useParams } from 'react-router-dom';
 
 import CharacterCard from '../../components/CharacterCard/CharacterCard';
 
-const CharactersSearchPage = ({ searchInput }) => {
+const CharactersPage = () => {
     const [characters, setCharacters] = useState(null);
     const [info, setInfo] = useState(null);
     const [page, setPage] = useState(1);
+    const { paramId, paramKeyword } = useParams();
 
     useEffect(() => {
         const fetchCharacters = async () => {
             try {
-                const response = await fetch(`https://rickandmortyapi.com/api/character/?page=${page}&name=${searchInput}`);
+                const response = await fetch(`https://rickandmortyapi.com/api/character/?page=${page}&${paramId}=${paramKeyword}`);
                 const data = await response.json();
                 setInfo(data.info)
                 setCharacters(data.results);
@@ -23,10 +24,10 @@ const CharactersSearchPage = ({ searchInput }) => {
         };
 
         fetchCharacters();
-    }, [searchInput, page]);
+    }, [page, paramId, paramKeyword]);
 
     if (!characters) {
-        return <div className="characters-page"><p className="p-waiting">Sorry, no results found</p></div>;
+        return <p className="p-waiting">Please wait...</p>;
     }
 
     return (
@@ -47,4 +48,4 @@ const CharactersSearchPage = ({ searchInput }) => {
     );
 };
 
-export default CharactersSearchPage;
+export default CharactersPage;

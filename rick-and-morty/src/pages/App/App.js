@@ -11,6 +11,7 @@ import LocationDetailPage from '../LocationDetailPage/LocationDetailPage';
 import LocationsFilerPage from '../LocationsFilerPage/LocationsFilerPage';
 import EpisodeDetailPage from '../EpisodeDetailPage/EpisodeDetailPage';
 import CharactersSearchPage from '../CharactersSearchPage/CharactersSearchPage';
+import CharactersFilterPage from '../CharactersFilterPage/CharactersFilterPage';
 
 function App() {
   const [searchInput, setSearchInput] = useState(null);
@@ -22,6 +23,7 @@ function App() {
         <Route path="/" element={<CharactersPage />} />
         <Route path="/characters" element={<CharactersPage />} />
         <Route path="/characters/:id" element={<CharacterDetailPage />} />
+        <Route path="/characters/:paramId/:paramKeyword" element={<CharactersFilterPage />} />
         <Route path="/locations" element={<LocationsPage />} />
         <Route path="/locations/:id" element={<LocationDetailPage />} />
         <Route path="/locations/:paramId/:paramKeyword" element={<LocationsFilerPage />} />
