@@ -39,3 +39,8 @@
 .inactive {
     color: rgb(191, 189, 189);
 }
+
+.pagination-dots {
+    color: rgb(101, 99, 99);
+    margin: 1vmin;
+}

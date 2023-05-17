@@ -2,7 +2,7 @@ import './Pagination.css';
 import { useMemo } from 'react';
 
 function Pagination({ info, page, setPage }) {
-
+  // from https://www.freecodecamp.org/news/build-a-custom-pagination-component-in-react/
   const paginationRange = useMemo(() => {
     const totalPageNumbers = 7;
     const siblingCount = 1;
@@ -42,18 +42,22 @@ function Pagination({ info, page, setPage }) {
     }
   }, [info, page]);
 
-  console.log(paginationRange);
+  const paginationRangeArray = paginationRange;
 
   const buttons = [];
-  for (let i = 1; i <= info.pages; i++) {
-    const isCurrentPage = i === page;
-    const buttonClass = isCurrentPage ? 'pagination-button pagination-button-clicked' : 'pagination-button';
+  for (let i = 0; i < paginationRangeArray.length; i++) {
+    if (paginationRangeArray[i]==="DOTS") {
+      buttons.push(<p className="pagination-dots">...</p>)
+    } else {
+      const isCurrentPage = paginationRangeArray[i] === page;
+      const buttonClass = isCurrentPage ? 'pagination-button pagination-button-clicked' : 'pagination-button';
 
-    buttons.push(
-      <button className={buttonClass} key={i} onClick={() => setPage(i)}>
-        {i}
-      </button>
-    );
+      buttons.push(
+        <button className={buttonClass} key={paginationRangeArray[i]} onClick={() => setPage(paginationRangeArray[i])}>
+          {paginationRangeArray[i]}
+        </button>
+      );
+    }
   }
 
   function leftArrowClick() {

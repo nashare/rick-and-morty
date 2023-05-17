@@ -112,14 +112,10 @@ function CharacterDetailPage() {
           </tr>
           <tr>
             <td>Location:</td>
-            <td>
                 {character.location.name !== 'unknown' ? (
                   <td><Link to={`/locations/${character.location.url.split("/").pop()}`} key={character.location.name} className="link">
-                    {character.location.name}
-                  </Link></td>
+                {character.location.name}</Link></td>
                 ) : <td>{character.origin.name}</td>}
-
-            </td>
           </tr>
           <tr>
             <td>Number of Episodes:</td>
