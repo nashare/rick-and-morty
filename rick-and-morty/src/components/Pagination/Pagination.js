@@ -8,7 +8,11 @@ function Pagination({ info, page, setPage }) {
     const siblingCount = 1;
 
     function rangeArray (start, end) {
-      return Array.from(Array(end - start + 1).keys(), (num) => num + start);
+      const resultArray = [];
+      for (let i = start; i <= end; i++) {
+        resultArray.push(i);
+      }
+      return resultArray;
     }
     if (totalPageNumbers >= info.pages) {
       return rangeArray(1, info.pages);
@@ -47,13 +51,13 @@ function Pagination({ info, page, setPage }) {
   const buttons = [];
   for (let i = 0; i < paginationRangeArray.length; i++) {
     if (paginationRangeArray[i]==="DOTS") {
-      buttons.push(<p className="pagination-dots">...</p>)
+      buttons.push(<p key={i} className="pagination-dots">...</p>)
     } else {
       const isCurrentPage = paginationRangeArray[i] === page;
       const buttonClass = isCurrentPage ? 'pagination-button pagination-button-clicked' : 'pagination-button';
 
       buttons.push(
-        <button className={buttonClass} key={paginationRangeArray[i]} onClick={() => setPage(paginationRangeArray[i])}>
+        <button className={buttonClass} key={i} onClick={() => setPage(paginationRangeArray[i])}>
           {paginationRangeArray[i]}
         </button>
       );

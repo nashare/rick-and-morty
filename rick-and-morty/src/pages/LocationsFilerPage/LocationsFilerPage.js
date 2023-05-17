@@ -9,6 +9,7 @@ const LocationsFilerPage = () => {
     const [info, setInfo] = useState(null);
     const [page, setPage] = useState(1);
     const { paramId, paramKeyword } = useParams();
+    const [error, setError] = useState(null);
 
     useEffect(() => {
         const fetchLocations = async () => {
@@ -18,12 +19,16 @@ const LocationsFilerPage = () => {
                 setInfo(data.info);
                 setLocations(data.results);
             } catch (error) {
-                console.error('Error:', error);
+                setError("An error occurred while filtering locations. Please try again later.");
             }
         };
 
         fetchLocations();
     }, [page, paramId, paramKeyword]);
+
+    if (error) {
+        return <div className="locations-page"><p className="p-waiting">{error}</p></div>;
+    }
 
     if (!locations) {
         return <div className="locations-page"><p className="p-waiting">Please wait...</p></div>;

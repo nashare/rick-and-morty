@@ -9,6 +9,7 @@ const CharactersPage = () => {
   const [characters, setCharacters] = useState(null);
   const [info, setInfo] = useState(null);
   const [page, setPage] = useState(1);
+  const [error, setError] = useState(null);
 
   useEffect(() => {
     const fetchCharacters = async () => {
@@ -18,12 +19,16 @@ const CharactersPage = () => {
         setInfo(data.info)
         setCharacters(data.results);
       } catch (error) {
-        console.error('Error:', error);
+        setError("An error occurred while fetching characters. Please try again later.");
       }
     };
 
     fetchCharacters();
   }, [page]);
+
+  if (error) {
+    return <div className="locations-page"><p className="p-waiting">{error}</p></div>;
+  }
 
   if (!characters) {
     return <p className="p-waiting">Please wait...</p>;

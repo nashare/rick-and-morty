@@ -7,7 +7,8 @@ import Pagination from '../../components/Pagination/Pagination';
 const EpisodesPage = () => {
   const [episodes, setEpisodes] = useState(null);
   const [info, setInfo] = useState(null);
-  const [page, setPage] = useState(1);
+  const [page, setPage] = useState(1); 
+  const [error, setError] = useState(null);
 
   useEffect(() => {
     const fetchEpisodes = async () => {
@@ -17,12 +18,16 @@ const EpisodesPage = () => {
         setInfo(data.info);
         setEpisodes(data.results);
       } catch (error) {
-        console.error('Error:', error);
+        setError("An error occurred while fetching episodes. Please try again later.");
       }
     };
 
     fetchEpisodes();
   }, [page]);
+
+  if (error) {
+    return <div className="episodes-page"><p className="p-waiting">{error}</p></div>;
+  }
 
   if (!episodes) {
     return <div className="episodes-page"><p className="p-waiting">Please wait...</p></div>;

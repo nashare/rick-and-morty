@@ -8,6 +8,7 @@ function EpisodeDetailPage() {
   const [episode, setEpisode] = useState(null);
   const [isListVisible, setListVisible] = useState(false);
   const [imageUrls, setImageUrls] = useState([]);
+  const [error, setError] = useState(null);
 
   const toggleVisibility = () => {
     setListVisible(!isListVisible);
@@ -21,8 +22,7 @@ function EpisodeDetailPage() {
           const data = await response.json();
           return data.image;
         } catch (error) {
-          console.error('Error:', error);
-          return '';
+          setError("An error occurred while fetching this episode. Please try again later.");
         }
       })
     );
@@ -37,14 +37,18 @@ function EpisodeDetailPage() {
         setEpisode(data);
         await fetchImageUrls(data.characters);
       } catch (error) {
-        console.error('Error:', error);
+        setError("An error occurred while fetching this episode. Please try again later.");
       }
     };
     fetchLocation();
   }, [id]);
 
+  if (error) {
+    return <div className="locations-page"><p className="p-waiting">{error}</p></div>;
+  }
+
   if (!episode) {
-    return <div className="episode-detail-page-container"><p className="p-waiting">Please wait...</p></div>;
+    return <div className="locations-page"><p className="p-waiting">Please wait...</p></div>;
   }
 
   return (

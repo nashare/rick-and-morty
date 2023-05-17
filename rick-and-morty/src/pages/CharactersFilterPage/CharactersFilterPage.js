@@ -10,6 +10,7 @@ const CharactersPage = () => {
     const [info, setInfo] = useState(null);
     const [page, setPage] = useState(1);
     const { paramId, paramKeyword } = useParams();
+    const [error, setError] = useState(null);
 
     useEffect(() => {
         const fetchCharacters = async () => {
@@ -19,12 +20,16 @@ const CharactersPage = () => {
                 setInfo(data.info)
                 setCharacters(data.results);
             } catch (error) {
-                console.error('Error:', error);
+                setError("An error occurred while filtering characters. Please try again later.");
             }
         };
 
         fetchCharacters();
     }, [page, paramId, paramKeyword]);
+
+    if (error) {
+        return <div className="locations-page"><p className="p-waiting">{error}</p></div>;
+    }
 
     if (!characters) {
         return <p className="p-waiting">Please wait...</p>;

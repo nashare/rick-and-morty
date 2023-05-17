@@ -9,6 +9,7 @@ const CharactersSearchPage = ({ searchInput }) => {
     const [characters, setCharacters] = useState(null);
     const [info, setInfo] = useState(null);
     const [page, setPage] = useState(1);
+    const [error, setError] = useState(null);
 
     useEffect(() => {
         const fetchCharacters = async () => {
@@ -18,12 +19,16 @@ const CharactersSearchPage = ({ searchInput }) => {
                 setInfo(data.info)
                 setCharacters(data.results);
             } catch (error) {
-                console.error('Error:', error);
+                setError("An error occurred while searching characters. Please try again later.");
             }
         };
 
         fetchCharacters();
     }, [searchInput, page]);
+
+    if (error) {
+        return <div className="characters-page"><p className="p-waiting">{error}</p></div>;
+    }
 
     if (!characters) {
         return <div className="characters-page"><p className="p-waiting">Sorry, no results found</p></div>;

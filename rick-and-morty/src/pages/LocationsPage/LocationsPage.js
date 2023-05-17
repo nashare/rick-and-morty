@@ -8,6 +8,7 @@ const LocationsPage = () => {
   const [locations, setLocations] = useState(null);
   const [info, setInfo] = useState(null);
   const [page, setPage] = useState(1);
+  const [error, setError] = useState(null);
 
   useEffect(() => {
     const fetchLocations = async () => {
@@ -17,12 +18,16 @@ const LocationsPage = () => {
         setInfo(data.info);
         setLocations(data.results);
       } catch (error) {
-        console.error('Error:', error);
+        setError("An error occurred while fetching locations. Please try again later.");
       }
     };
 
     fetchLocations();
   }, [page]);
+
+  if (error) {
+    return <div className="locations-page"><p className="p-waiting">{error}</p></div>;
+  }
 
   if (!locations) {
     return <div className="locations-page"><p className="p-waiting">Please wait...</p></div>;

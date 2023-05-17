@@ -8,6 +8,7 @@ function CharacterDetailPage() {
   const [character, setCharacter] = useState(null);
   const [isListVisible, setListVisible] = useState(false);
   const [episodes, setEpisodes] = useState([]);
+  const [error, setError] = useState(null);
 
   const toggleVisibility = () => {
     setListVisible(!isListVisible);
@@ -20,8 +21,7 @@ function CharacterDetailPage() {
           const data = await response.json();
           return data.episode;
         } catch (error) {
-          console.error('Error:', error);
-          return '';
+          setError("An error occurred while fetching this character. Please try again later.");
         }
       })
     );
@@ -36,15 +36,19 @@ function CharacterDetailPage() {
         await fetchEpisodes(data.episode)
         setCharacter(data);
       } catch (error) {
-        console.error('Error:', error);
+        setError("An error occurred while fetching this character. Please try again later.");
       }
     };
 
     fetchCharacter();
   }, [id]);
 
+  if (error) {
+    return <div className="locations-page"><p className="p-waiting">{error}</p></div>;
+  }
+
   if (!character) {
-    return <div className="character-detail-page-container"><p className="p-waiting">Please wait...</p></div>;
+    return <div className="locations-page"><p className="p-waiting">Please wait...</p></div>;
   }
 
   return (
