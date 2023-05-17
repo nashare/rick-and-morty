@@ -1,9 +1,12 @@
 # Description:
-Introducing the "Rick and Morty" project, your ultimate go-to for everything related to the beloved animated series. This comprehensive resource offers a wealth of information on the show's characters, locations, and episodes. Easily explore and discover your favorite characters with the project's convenient search feature.
+Introducing the ["Rick and Morty"](https://rick-and-morty-project3.netlify.app/) project, your ultimate go-to for everything related to the beloved animated series. This comprehensive resource offers a wealth of information on the show's characters, locations, and episodes. Easily explore and discover your favorite characters with the project's convenient search feature.
 
 ![Project Main Page](images/main.png)
 
 ![Project Location Details Page](images/location-details.png)
+
+# Project proposal:
+[Wireframes, Trello board, API information etc](https://www.notion.so/Project-3-69b9e554d97a44fda51fd15eff006908) 
 
 # Technologies Used:
 - JavaScript
@@ -14,6 +17,7 @@ Introducing the "Rick and Morty" project, your ultimate go-to for everything rel
 - React Router
 - Git
 - Visual Studio Code
+- API
 
 # Installation Instructions:
 Fork and clone this repository on your local machine: 
@@ -31,4 +35,6 @@ After the dependencies are installed, execute the following command to start the
 Open a web browser and visit http://localhost:3000 to access the "Rick and Morty" application.
 
 # Contribution Guidelines:
-This section should offer guidance on where and how users can contribute to your code, identify bugs, and propose improvements.
+Thank you for considering contributing to my project! I appreciate the community's involvement and welcome any contributions, bug reports, or suggestions for improvements. 
+
+Please create a new issue and provide a title and a description with any relevant examples, screenshots or error messages. 
