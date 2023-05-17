@@ -1,6 +1,8 @@
 # Description:
-The "Rick and Morty" project serves as a comprehensive resource for fans of the popular animated series. This project aims to provide detailed information about the show's characters, locations, and episodes. Users of the project have the ability to search for their favorite characters. 
+Introducing the "Rick and Morty" project, your ultimate go-to for everything related to the beloved animated series. This comprehensive resource offers a wealth of information on the show's characters, locations, and episodes. Easily explore and discover your favorite characters with the project's convenient search feature.
+
 ![Project Main Page](images/main.png)
+
 ![Project Location Details Page](images/location-details.png)
 
 # Technologies Used:
