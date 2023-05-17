@@ -6,10 +6,19 @@ Introducing the "Rick and Morty" project, your ultimate go-to for everything rel
 ![Project Location Details Page](images/location-details.png)
 
 # Technologies Used:
-A list of the languages, libraries and frameworks used in your application.
+- JavaScript
+- HTML
+- CSS
+- Node Package Manager
+- React
+- React Router
+- Git
+- Visual Studio Code
 
-# Getting Started/Installation Instructions:
-This would likely describe how to use the application and the steps to fork, clone and run the application.
+# Installation Instructions:
+Fork and clone this repository on your local machine: `git clone https://github.com/your-username/rick-and-morty.git`
+Once the repository is cloned, navigate to the project's root directory and run the command `npm install` to install the necessary dependencies. After the dependencies are installed, execute the following command to start the application: `npm start`. 
+Open a web browser and visit http://localhost:3000 to access the "Rick and Morty" application.
 
 # Contribution Guidelines:
 This section should offer guidance on where and how users can contribute to your code, identify bugs, and propose improvements.
