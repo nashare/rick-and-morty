@@ -18,10 +18,13 @@ Introducing the "Rick and Morty" project, your ultimate go-to for everything rel
 # Installation Instructions:
 Fork and clone this repository on your local machine: 
 `git clone https://github.com/your-username/rick-and-morty.git`
+
 Once the repository is cloned, navigate to the project's root directory and install the necessary dependencies:
 `npm install`
+
 After the dependencies are installed, execute the following command to start the application: 
 `npm start`
+
 Open a web browser and visit http://localhost:3000 to access the "Rick and Morty" application.
 
 # Contribution Guidelines:
