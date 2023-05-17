@@ -3,7 +3,7 @@ import { useParams } from 'react-router-dom';
 import { Link } from 'react-router-dom';
 import './LocationDetailPage.css';
 
-function LocationDetailPage() {
+function LocationDetailPage({ setLocationType, setLocationDimension }) {
   const { id } = useParams();
   const [location, setLocation] = useState(null);
   const [isListVisible, setListVisible] = useState(false);
@@ -43,6 +43,14 @@ function LocationDetailPage() {
     fetchLocation();
   }, [id]);
 
+  function handleTypeClick () {
+    setLocationType(location.type);
+  }
+
+  function handleDimensionClick() {
+    setLocationDimension(location.dimension);
+  }
+
   if (!location) {
     return <div className="location-detail-page-container"><p className="p-waiting">Please wait...</p></div>;
   }
@@ -58,11 +66,29 @@ function LocationDetailPage() {
             </tr>
             <tr>
               <td>Type:</td>
-              <td>{location.type}</td>
+              <td>
+                <Link
+                  to={`/locations/type`}
+                  key={location.type}
+                  onClick={handleTypeClick}
+                  className="link"
+                >
+                  {location.type}
+                </Link>
+              </td>
             </tr>
             <tr>
               <td>Dimension:</td>
-              <td>{location.dimension}</td>
+              <td>
+                <Link
+                  to={`/locations/dimension`}
+                  key={location.type}
+                  onClick={handleDimensionClick}
+                  className="link"
+                >
+                  {location.dimension}
+                </Link>
+              </td>
             </tr>
             <tr>
               <td>Number of Residents:</td>

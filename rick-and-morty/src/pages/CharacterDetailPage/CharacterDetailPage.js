@@ -77,7 +77,7 @@ function CharacterDetailPage() {
             <td>Origin:</td>
             {character.origin.name !== 'unknown' ? (
                 <td><Link to={`/locations/${character.origin.url.split('/').pop()}`} key={character.origin.name} className="link">{character.origin.name}</Link></td>
-              ) : <td>character.origin.name</td>}
+              ) : <td>{character.origin.name}</td>}
           </tr>
           <tr>
             <td>Location:</td>
