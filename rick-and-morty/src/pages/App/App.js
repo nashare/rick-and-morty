@@ -28,8 +28,8 @@ function App() {
         <Route path="/characters/:id" element={<CharacterDetailPage />} />
         <Route path="/locations" element={<LocationsPage />} />
         <Route path="/locations/:id" element={<LocationDetailPage setLocationType={setLocationType} setLocationDimension={setLocationDimension}/>} />
-        <Route path="/locations/type" element={<LocationsTypePage locationType={locationType}/>} />
-        <Route path="/locations/dimension" element={<LocationsDimensionPage locationDimension={locationDimension} />} />
+        <Route path="/locations/type/:id" element={<LocationsTypePage locationType={locationType}/>} />
+        <Route path="/locations/dimension/:id" element={<LocationsDimensionPage locationDimension={locationDimension} />} />
         <Route path="/episodes" element={<EpisodesPage />} />
         <Route path="/episodes/:id" element={<EpisodeDetailPage />} />
         <Route path="/search" element={<CharactersSearchPage searchInput={searchInput} />} />

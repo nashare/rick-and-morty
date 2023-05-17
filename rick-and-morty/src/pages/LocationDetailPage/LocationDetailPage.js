@@ -68,7 +68,7 @@ function LocationDetailPage({ setLocationType, setLocationDimension }) {
               <td>Type:</td>
               <td>
                 <Link
-                  to={`/locations/type`}
+                  to={`/locations/type/${location.type}`}
                   key={location.type}
                   onClick={handleTypeClick}
                   className="link"
@@ -81,8 +81,8 @@ function LocationDetailPage({ setLocationType, setLocationDimension }) {
               <td>Dimension:</td>
               <td>
                 <Link
-                  to={`/locations/dimension`}
-                  key={location.type}
+                  to={`/locations/dimension/${location.dimension}`}
+                  key={location.dimension}
                   onClick={handleDimensionClick}
                   className="link"
                 >
