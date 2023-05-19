@@ -15,10 +15,11 @@ import CharactersFilterPage from '../CharactersFilterPage/CharactersFilterPage';
 
 function App() {
   const [searchInput, setSearchInput] = useState(null);
+  const [searchPage, setSearchPage] = useState(1);
 
   return (
     <main className="App">
-      <NavBar setSearchInput={setSearchInput}/>
+      <NavBar setSearchInput={setSearchInput} setPage={setSearchPage} />
       <Routes>
         <Route path="/" element={<CharactersPage />} />
         <Route path="/characters" element={<CharactersPage />} />
@@ -29,7 +30,7 @@ function App() {
         <Route path="/locations/:paramId/:paramKeyword" element={<LocationsFilerPage />} />
         <Route path="/episodes" element={<EpisodesPage />} />
         <Route path="/episodes/:id" element={<EpisodeDetailPage />} />
-        <Route path="/search" element={<CharactersSearchPage searchInput={searchInput} />} />
+        <Route path="/search" element={<CharactersSearchPage setPage={setSearchPage} page={searchPage} searchInput={searchInput} />} />
       </Routes>
     </main>
   );

@@ -2,7 +2,7 @@ import './NavBar.css';
 import { Link } from "react-router-dom";
 import SearchForm from '../SearchForm/SearchForm';
 
-function NavBar({ setSearchInput }) {
+function NavBar({ setSearchInput, setPage }) {
   return (
     <nav>
       <div className="nav-bar-links">
@@ -10,7 +10,7 @@ function NavBar({ setSearchInput }) {
         <Link to="/locations" className="nav-link">LOCATIONS</Link>
         <Link to="/episodes" className="nav-link">EPISODES</Link>
       </div>
-      <SearchForm setSearchInput={setSearchInput} />
+      <SearchForm setSearchInput={setSearchInput} setPage={setPage} />
     </nav>
   );
 }

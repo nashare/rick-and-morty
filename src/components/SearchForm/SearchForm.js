@@ -2,7 +2,7 @@ import './SearchForm.css';
 import { useState } from 'react';
 import { useNavigate } from "react-router-dom";
 
-function SearchForm({ setSearchInput }) {
+function SearchForm({ setSearchInput, setPage }) {
   const [input, setInput] = useState("");
   const navigate = useNavigate();
 
@@ -13,6 +13,7 @@ function SearchForm({ setSearchInput }) {
   const handleKeyPress = (event) => {
     event.persist();
     if (event.key === 'Enter') {
+      setPage(1);
       setSearchInput(input);
       navigate('/search');
       setInput("");

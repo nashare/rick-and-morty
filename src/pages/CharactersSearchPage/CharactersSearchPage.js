@@ -5,10 +5,9 @@ import React, { useState, useEffect } from 'react';
 
 import CharacterCard from '../../components/CharacterCard/CharacterCard';
 
-const CharactersSearchPage = ({ searchInput }) => {
+const CharactersSearchPage = ({ searchInput, setPage, page }) => {
     const [characters, setCharacters] = useState(null);
     const [info, setInfo] = useState(null);
-    const [page, setPage] = useState(1);
     const [error, setError] = useState(null);
 
     useEffect(() => {
@@ -16,7 +15,7 @@ const CharactersSearchPage = ({ searchInput }) => {
             try {
                 const response = await fetch(`https://rickandmortyapi.com/api/character/?page=${page}&name=${searchInput}`);
                 const data = await response.json();
-                setInfo(data.info)
+                setInfo(data.info);
                 setCharacters(data.results);
             } catch (error) {
                 setError("An error occurred while searching characters. Please try again later.");
