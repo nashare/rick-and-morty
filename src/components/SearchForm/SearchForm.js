@@ -27,7 +27,7 @@ function SearchForm({ setSearchInput, setPage }) {
         value={input} 
         placeholder="Search..."
         onChange={handleChange}
-        onKeyPress={handleKeyPress}
+        onKeyUp={handleKeyPress}
       />
     </div>
   );
